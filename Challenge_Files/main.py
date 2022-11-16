@@ -112,13 +112,17 @@ new_loan = {
 # @TODO: Define a new function that will be used to calculate present value.
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
-# YOUR CODE HERE!
+futurevalue_two = new_loan.get("future_value")
+remainingm_two = new_loan.get("remaining_months")
 
-
+def calc_present_value(futurevalue_two, remainingm_two, annual_discount_rate):
+    present_value_two = futurevalue_two / (1 + annual_discount_rate) ** remainingm_two
+    return present_value_two
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-# YOUR CODE HERE!
-print(f"The present value of the loan is: {present_value}")
+
+present_value_two = calc_present_value(futurevalue_two, remainingm_two, 0.20)
+print(f"The present value of the loan is: {present_value_two: .2f}")
 
 
 """Part 4: Conditionally filter lists of loans.
