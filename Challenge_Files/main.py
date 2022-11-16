@@ -64,21 +64,30 @@ loan = {
 
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
-# YOUR CODE HERE!
-
+futurevalue = loan.get("future_value")
+remainingm = loan.get("remaining_months")
+print("The future value is:", futurevalue)
+print("The remaining months left on the loan are:", remainingm)
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
 # Use a minimum required return of 20% as the discount rate.
 #   You'll want to use the **monthly** version of the present value formula.
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
-
-# YOUR CODE HERE!
+present_value = futurevalue / (1 + 0.20/12) ** remainingm
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
-# YOUR CODE HERE!
+loanprice = loan.get("loan_price")
+if present_value > loanprice: 
+    print("This loan has great value! You should buy it.")
+elif present_value == loanprice:
+    print("Proceed with caution! Loan is eqaully valued, beware of risks!")
+elif present_value < loanprice:
+    print("Loan is too expensive and not worth it. Do not buy it!")
+else:
+    print("Not enough information neccessary to proceed with a recomendation!")
 
 
 """Part 3: Perform Financial Calculations.
